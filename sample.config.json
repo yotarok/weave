@@ -1,0 +1,30 @@
+{
+    "planner": {
+        "configVars": {
+            "PUBLISH_ROOT": "s3://bucket"
+        },
+        "checkPointRoot": "s3://bucket",
+        "checkPointLevel": "important"
+    },
+    "storage": {
+        "className":"ro.yota.weave.storage.S3Storage",
+        "rootPath":"s3://bucket-sandbox/ws"
+    },
+    "journal": {
+        "path":"/Users/hogehoge/journal.bin"
+    },
+    "publishers": [
+        {
+            "className": "ro.yota.weave.S3Publisher",
+            "s3EndPoint": "https://s3.us-west-2.amazonaws.com"
+        },
+        {
+            "className": "ro.yota.weave.FSPublisher"
+        }
+    ],
+    "scheduler": {
+        "className":"ro.yota.weave.AkkaScheduler",
+        "scriptEnvVars": [
+        ]
+    }
+}
